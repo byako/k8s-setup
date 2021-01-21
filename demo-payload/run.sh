@@ -4,5 +4,5 @@
 set -eu
 
 # run our app and sleep for 10 minutes
-payload
+demo-payload
 sleep 600

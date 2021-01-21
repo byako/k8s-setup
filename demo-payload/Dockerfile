@@ -1,6 +1,6 @@
 FROM debian:buster-slim
 
-ADD payload /usr/local/bin/payload
+ADD demo-payload /usr/local/bin/demo-payload
 ADD run.sh /run.sh
 
 ENTRYPOINT ["/run.sh"]

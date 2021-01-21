@@ -1,13 +1,14 @@
-PROJECT=payload
+PROJECT=demo-payload
 PROJECT_VERSION=v0.0.1
+SOURCES=demo-payload.c
 
-default: payload
+default: build
 
-payload:
-	gcc payload.c -o payload
+build:
+	gcc $(SOURCES) -o $(PROJECT)
 
 clean:
-	-rm -f payload
+	-rm -f $(PROJECT)
 
 package: payload
 	docker build -t "$(PROJECT):$(PROJECT_VERSION)" ./

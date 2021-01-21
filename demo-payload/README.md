@@ -1,14 +1,13 @@
-This is a 'Hello world!' example binary packageable into container image that
-you can use as a payload to deploy to k8s.
+This is a 'Hello world!' demo app, packageable into container image that you
+can use as a payload to deploy to k8s.
 
-To compile and package the binary, run
-
+To compile and package the binary, run:
 ```shell
 make package
 ```
 
 
-## Example payload application
+## Demo payload application
 
 Is a C hello-world application, it exits after printing message. You need any
 C compiler to make binary out of it. Makefile uses GCC, make sure you have GCC
