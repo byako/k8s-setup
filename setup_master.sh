@@ -15,17 +15,11 @@ sudo swapoff -a
 
 sudo kubeadm init
 
-curl https://docs.projectcalico.org/manifests/calico-etcd.yaml -o calico.yaml
-sed -i 's/etcd_endpoints:.*/etcd_endpoints: "https:\/\/127.0.0.1:2379"/' calico.yaml
-# manually add certificates from /etc/kubernetes/pki/etcd/
-# - server.key
-# - server.crt
-# - ca.crt
-# cat $file | base64 -w 0
-
-# manually fix 0400 mask for mounting secret volume to 0440
-
-sleep 5  # give chance to ^c
+[[ -f "calico.yaml" ]] || {
+    curl https://docs.projectcalico.org/manifests/calico-etcd.yaml -o calico.yml
+    echo "Update calico.yml"
+    exit 0
+}
 
 kubectl apply -f calico.yaml
 
