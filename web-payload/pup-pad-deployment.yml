@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app.kubernetes.io/name: pup-pad-balanced
+  name: pup-pad
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: pup-pad-balanced
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: pup-pad-balanced
+    spec:
+      containers:
+      - image: byako/pup-pad:latest
+        name: pup-pad
+        ports:
+        - containerPort: 80
